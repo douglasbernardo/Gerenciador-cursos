@@ -1,2 +1,3 @@
 # Gerenciador-cursos
-Sistema para gerenciar cursos com php mvc e doctrine
+Sistema para gerenciar cursos 
+com php mvc e doctrine
