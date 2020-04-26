@@ -16,7 +16,6 @@ class Persistencia implements InterfaceControladorRequisicao
     public function __construct()
     {
         $this->entityManager = (new EntityManagerCreator())->getEntityManager();
-    
     }
 
     
@@ -29,7 +28,18 @@ class Persistencia implements InterfaceControladorRequisicao
 
         $curso = new curso();
         $curso->setDescricao($descricao);
-        $this->entityManager->persist($curso);
+
+        $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
+
+        if(!is_null($id) && $id !== false){
+            $curso->setId($id);
+            $this->entityManager->merge($curso);
+            //atualizar
+        }
+        else{
+            
+            $this->entityManager->persist($curso);
+        }
         $this->entityManager->flush();
         sleep(2);
         header('Location: /listar-cursos',true,302);
