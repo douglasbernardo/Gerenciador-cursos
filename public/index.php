@@ -5,20 +5,20 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Douglas\Cursos\Controller\FormularioInsercao;
 use Douglas\Cursos\Controller\ListarCursos;
+use Douglas\Cursos\Controller\Persistencia;
 
-switch ($_SERVER['PATH_INFO']){
-    case '/listar-cursos': //caso essa requisição estiver na url da require da pasta listar-cursos.php
-        $controlador = new ListarCursos();
-        $controlador->ProcessaRequisicao();
-        break;
-    case '/novo-curso': //caso essa requisição estiver na url da require da pasta formulario-novo-curso.php
-       $controlador = new FormularioInsercao();
-       $controlador->ProcessaRequisicao();
-        break;
-    default:
-        http_response_code(404);
-        break;
+$caminho = $_SERVER['PATH_INFO'];
+$routes = require_once __DIR__ . '/../config/routes.php';
+
+if(!array_key_exists($caminho,$rotas)){ //existe caminho->listar-cursos ou outro nas minhas rotas
+    echo "Erro 404";
+    exit();
 }
+
+/** @var $controlador */
+$classeControladora = $rotas[$caminho];
+$controlador = new $classeControladora();
+$controlador->ProcessaRequisicao();
 
 /*if ($_SERVER['PATH_INFO'] === '/listar-cursos'){
     require 'listar-cursos.php';
