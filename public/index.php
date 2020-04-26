@@ -3,20 +3,16 @@
 require __DIR__ . '/../vendor/autoload.php';
 // fazer log de todas as requisições
 
-use Douglas\Cursos\Controller\FormularioInsercao;
-use Douglas\Cursos\Controller\ListarCursos;
-use Douglas\Cursos\Controller\Persistencia;
-
 $caminho = $_SERVER['PATH_INFO'];
 $routes = require_once __DIR__ . '/../config/routes.php';
 
-if(!array_key_exists($caminho,$rotas)){ //existe caminho->listar-cursos ou outro nas minhas rotas
-    echo "Erro 404";
+if(!array_key_exists($caminho,$routes)){ //existe caminho->listar-cursos ou outro nas minhas rotas
+    http_response_code(404);
     exit();
 }
 
 /** @var $controlador */
-$classeControladora = $rotas[$caminho];
+$classeControladora = $routes[$caminho];
 $controlador = new $classeControladora();
 $controlador->ProcessaRequisicao();
 
