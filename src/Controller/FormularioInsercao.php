@@ -2,7 +2,7 @@
 
 namespace Douglas\Cursos\Controller;
 
-class FormularioInsercao implements InterfaceControladorRequisicao
+class FormularioInsercao extends ControllerComHtml implements InterfaceControladorRequisicao
 {
 
     public function ProcessaRequisicao() : void

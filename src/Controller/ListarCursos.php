@@ -4,7 +4,7 @@ namespace Douglas\Cursos\Controller;
 use Douglas\Cursos\Infra\EntityManagerCreator;
 use Douglas\Cursos\Entity\Curso;
 
-class ListarCursos implements InterfaceControladorRequisicao
+class ListarCursos extends ControllerComHtml implements InterfaceControladorRequisicao
 {
 
     private $repositorioDeCursos;

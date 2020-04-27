@@ -6,7 +6,7 @@ use Douglas\Cursos\Controller\InterfaceControladorRequisicao;
 use Douglas\Cursos\Entity\Curso;
 use Douglas\Cursos\Infra\EntityManagerCreator;
 
-class Alterar implements InterfaceControladorRequisicao
+class Alterar extends ControllerComHtml implements InterfaceControladorRequisicao
 {
 
     private  $entityManager;
@@ -15,8 +15,6 @@ class Alterar implements InterfaceControladorRequisicao
     {
         $this->entityManager = (new EntityManagerCreator())->getEntityManager();
     }
-
-
 
     public function ProcessaRequisicao(): void
     {
@@ -29,8 +27,10 @@ class Alterar implements InterfaceControladorRequisicao
         }
 
         $curso = $this->entityManager->find(Curso::class,$id); 
-        $titulo = "Alterando Curso:" . $curso->getDescricao();
-        require_once __DIR__ . '/../../view/cursos/Formulario.php';
+        $this->renderizahtml('cursos/Formulario.php',[
+            'cursos' => $curso,
+            'titulo' => "Alterando Curso:" . $curso->getDescricao()
+        ]);
         $this->entityManager->flush();
     }
 
