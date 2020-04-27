@@ -3,14 +3,14 @@
             Novo Curso
         </a>
         <ul class="list-group">
-            <?php foreach ($cursos as $curso): ?>
+            <?php foreach ($curso as $cursos): ?>
                 <li class="list-group-item d-flex justify-content-between">
-                    <?= $curso->getDescricao(); ?>
+                    <?= $cursos->getDescricao(); ?>
                     <span>
-                        <a href="/excluir-curso?id=<?= $curso->getId(); ?>" class="btn btn-danger btn-sm">
+                        <a href="/excluir-curso?id=<?= $cursos->getId(); ?>" class="btn btn-danger btn-sm">
                             Excluir
                         </a>
-                        <a href="/alterar-curso?id=<?= $curso->getId(); ?>" class="btn btn-info btn-sm">
+                        <a href="/alterar-curso?id=<?= $cursos->getId(); ?>" class="btn btn-info btn-sm">
                             Alterar
                         </a>
                     </span>

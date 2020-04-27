@@ -33,12 +33,10 @@ class Persistencia implements InterfaceControladorRequisicao
 
         if(!is_null($id) && $id !== false){
             $curso->setId($id);
-            $this->entityManager->merge($curso);
-            //atualizar
+            $this->entityManager->merge($curso);  //atualizar curso
         }
         else{
-            
-            $this->entityManager->persist($curso);
+            $this->entityManager->persist($curso);  //criar novo curso
         }
         $this->entityManager->flush();
         sleep(2);

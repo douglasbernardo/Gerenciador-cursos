@@ -17,10 +17,12 @@ class ListarCursos extends ControllerComHtml implements InterfaceControladorRequ
     }
 
     public function ProcessaRequisicao():void //Metodo que processa a requisição
-    {
-        $cursos = $this->repositorioDeCursos->findAll(); //Buscar todos os Cursos
-        $titulo = "Listar Cursos";
-        require_once __DIR__ . '/../../view/cursos/listar-cursos.php'; //todas as variaves que estão aqui passa para a view
+    { //Buscar todos os Cursos
+        echo $this->renderizahtml('cursos/listar-cursos.php',[
+            'curso' => $this->repositorioDeCursos->findAll(),
+            'titulo' => "Listar Cursos"
+        ]);
+         //todas as variaves que estão aqui passa para a view
         //Trazendo a view do arquivo listar-cursos.php
     }
 }

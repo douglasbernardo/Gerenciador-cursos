@@ -27,8 +27,8 @@ class Alterar extends ControllerComHtml implements InterfaceControladorRequisica
         }
 
         $curso = $this->entityManager->find(Curso::class,$id); 
-        $this->renderizahtml('cursos/Formulario.php',[
-            'cursos' => $curso,
+        echo $this->renderizahtml('cursos/Formulario.php',[
+            'curso' => $curso,
             'titulo' => "Alterando Curso:" . $curso->getDescricao()
         ]);
         $this->entityManager->flush();

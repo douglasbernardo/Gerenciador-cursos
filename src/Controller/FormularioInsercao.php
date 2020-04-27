@@ -1,6 +1,6 @@
 <?php
 
-namespace Douglas\Cursos\Controller;
+namespace Douglas\Cursos\Controller;       
 
 class FormularioInsercao extends ControllerComHtml implements InterfaceControladorRequisicao
 {
@@ -8,6 +8,8 @@ class FormularioInsercao extends ControllerComHtml implements InterfaceControlad
     public function ProcessaRequisicao() : void
     {
         $titulo = "Novo Curso";
-        require_once __DIR__ . '/../../view/cursos/Formulario.php';
+        echo $this->renderizahtml('cursos/Formulario.php',[
+            'titulo' => "Novo Curso"
+        ]);
     }
 }
