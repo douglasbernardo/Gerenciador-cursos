@@ -1,5 +1,5 @@
 <?php
-namespace Douglas\Armazenamento\Entity;
+namespace Douglas\Cursos\Entity;
 /**
  * @Entity
  * @Table(name="usuarios")

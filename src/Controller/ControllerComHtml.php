@@ -2,7 +2,7 @@
 
 namespace Douglas\Cursos\Controller;
 
-class ControllerComHtml
+abstract class ControllerComHtml
 {
     public function renderizahtml(string $caminhotemplate, array $dados) : string
     {

@@ -11,6 +11,15 @@ if(!array_key_exists($caminho,$routes)){ //existe caminho->listar-cursos ou outr
     exit();
 }
 
+session_start();
+
+$rotaLogin = stripos($caminho,'login');  //procurar a string login no caminho
+
+if(!isset($_SESSION['logado']) && $rotaLogin === false){
+    header('location: /login');
+    exit();
+}
+
 /** @var $controlador */
 $classeControladora = $routes[$caminho];
 $controlador = new $classeControladora();

@@ -5,8 +5,8 @@ use Douglas\Cursos\Controller\Exclusao;
 use Douglas\Cursos\Controller\FormularioInsercao;
 use Douglas\Cursos\Controller\ListarCursos;
 use Douglas\Cursos\Controller\Persistencia;
-
-
+use Douglas\Cursos\Controller\Login;
+use Douglas\Cursos\Controller\RealizarLogin;
 
 $routes = [
 
@@ -14,7 +14,9 @@ $routes = [
     '/listar-cursos' => ListarCursos::class,
     '/novo-curso' => FormularioInsercao::class,
     '/excluir-curso' => Exclusao::class,
-    '/alterar-curso' => Alterar::class
+    '/alterar-curso' => Alterar::class,
+    '/login' => Login::class,
+    '/realizar-login' => RealizarLogin::class
 ];
 
 return $routes;
