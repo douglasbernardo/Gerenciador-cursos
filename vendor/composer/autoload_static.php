@@ -11,15 +11,29 @@ class ComposerStaticInit6d78c2dda214f63b7313f146d0c4dd39
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\EventManager\\' => 18,
+            'Zend\\Code\\' => 10,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\' => 18,
+            'Symfony\\Component\\Stopwatch\\' => 28,
             'Symfony\\Component\\Console\\' => 26,
+        ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
+            'PackageVersions\\' => 16,
         ),
         'D' => 
         array (
+            'Douglas\\Cursos\\' => 15,
             'Doctrine\\ORM\\' => 13,
+            'Doctrine\\Migrations\\' => 20,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\DBAL\\' => 14,
             'Doctrine\\Common\\Inflector\\' => 26,
@@ -28,28 +42,56 @@ class ComposerStaticInit6d78c2dda214f63b7313f146d0c4dd39
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
         ),
-        'A' => 
-        array (
-            'Douglas\\Cursos\\' => 13,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\EventManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-eventmanager/src',
+        ),
+        'Zend\\Code\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Contracts\\Service\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
         'Symfony\\Contracts\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/contracts',
         ),
+        'Symfony\\Component\\Stopwatch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/stopwatch',
+        ),
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PackageVersions\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'Douglas\\Cursos\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Doctrine\\ORM\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM',
+        ),
+        'Doctrine\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -77,18 +119,21 @@ class ComposerStaticInit6d78c2dda214f63b7313f146d0c4dd39
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
-            1 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-        ),
-        'Douglas\\Cursos\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
     );
 
     public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'ProxyManager\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\Common\\Lexer\\' => 

@@ -6,16 +6,23 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Zend\\EventManager\\' => array($vendorDir . '/zendframework/zend-eventmanager/src'),
+    'Zend\\Code\\' => array($vendorDir . '/zendframework/zend-code/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Contracts\\Service\\' => array($vendorDir . '/symfony/service-contracts'),
     'Symfony\\Contracts\\' => array($vendorDir . '/symfony/contracts'),
+    'Symfony\\Component\\Stopwatch\\' => array($vendorDir . '/symfony/stopwatch'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PackageVersions\\' => array($vendorDir . '/ocramius/package-versions/src/PackageVersions'),
+    'Douglas\\Cursos\\' => array($baseDir . '/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib/Doctrine/ORM'),
+    'Doctrine\\Migrations\\' => array($vendorDir . '/doctrine/migrations/lib/Doctrine/Migrations'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib/Doctrine/DBAL'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib/Doctrine/Common/Collections'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations'),
-    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/event-manager/lib/Doctrine/Common', $vendorDir . '/doctrine/reflection/lib/Doctrine/Common', $vendorDir . '/doctrine/persistence/lib/Doctrine/Common', $vendorDir . '/doctrine/common/lib/Doctrine/Common'),
-    'Alura\\Cursos\\' => array($baseDir . '/src'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common', $vendorDir . '/doctrine/event-manager/lib/Doctrine/Common', $vendorDir . '/doctrine/persistence/lib/Doctrine/Common', $vendorDir . '/doctrine/reflection/lib/Doctrine/Common'),
 );

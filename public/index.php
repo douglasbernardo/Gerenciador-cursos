@@ -15,7 +15,7 @@ session_start();
 
 $rotaLogin = stripos($caminho,'login');  //procurar a string login no caminho
 
-if(!isset($_SESSION['logado']) && $rotaLogin === false){
+if(!isset($_SESSION['logado']) && $rotaLogin === false && $caminho !== '/cadastro' && $caminho !== '/realizar-cadastro'){
     header('location: /login');
     exit();
 }
