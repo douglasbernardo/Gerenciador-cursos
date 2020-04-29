@@ -7,11 +7,18 @@ use Douglas\Cursos\Infra\EntityManagerCreator;
 
 class RealizarCadastro implements InterfaceControladorRequisicao
 {
-
-    private $email;
-    private $senha;
+    /**
+     * @var \Doctrine\Orm\EntityManagerInterface
+     */
     private $entityManager;
 
+
+    public function __construct()
+    {
+        $this->entityManager = (new EntityManagerCreator())->getEntityManager();
+    }
+
+    
     public function ProcessaRequisicao() : void
     {
      //post
@@ -27,20 +34,18 @@ class RealizarCadastro implements InterfaceControladorRequisicao
         $usuario->setEmail($email);
         $usuario->setSenha($senha);
 
+    
+        $this->entityManager->persist($usuario);  //criar novo curso
+       
+        $this->entityManager->flush();
+
+        if(is_null($usuario)){
+            echo "Usuario nulo pqp";
+        }else{
+            header('Location: /login',true,302);
+        }
     }
 
-    public function Cadastrar()
-    {
-        $classeUsuario = Usuario::class;
-        $entityManager = (new EntityManagerCreator())->getEntityManager();
-        $dql = "INSERT INTO usuarios(email,senha) values ($this->email,$this->senha)";
-        $query = $entityManager->createQuery($dql);
-
-        return $query->getResult();
-
-         
-        header('Location: /login',true,302);
-    }
     //pegar dados do formulario
     //montar modelo de curso
     //inserir no banco 
