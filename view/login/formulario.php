@@ -12,5 +12,6 @@
             <input type="password" class="form-control" placeholder="Digite sua senha" name="senha" aria-describedby="basic-addon2">
         </div>
         <button class="btn btn-primary">Logar</button>
+        <a href='/cadastro'>Ainda não tem cadastro?</a>
     </form>
 <?php require_once __DIR__ . '/../fim-html.php';

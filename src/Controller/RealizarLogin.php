@@ -23,23 +23,29 @@ class RealizarLogin implements InterfaceControladorRequisicao
         $senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_STRING);
 
         if (is_null($email) || $email === false){
-            echo "Erro E-mail não encontrado";
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "E-mail vazio";
+            header('location: /login');
             return;
         }
 
         if (is_null($senha)){
-            echo "Digite sua senha";
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "Digite sua senha";
+            header('location: /login');
         }
 
         $usuario = $this->repositorioDeCursos->findOneBy(['email' => $email]);
 
         if(is_null($usuario) || $usuario->senhaEstaCorreta($senha)){
-            echo "E-mail ou senha invalidos";
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "E-mail ou senha invalidos";
+            header('location: /login');
             return;
         }
         session_start();
         $_SESSION['logado'] = true;
 
-        header('location: /listar-cursos');
+        header('location: /listar-cursos',true,302);
     }
 }

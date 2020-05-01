@@ -2,6 +2,7 @@
 
 use Douglas\Cursos\Controller\Alterar;
 use Douglas\Cursos\Controller\Cadastro;
+use Douglas\Cursos\Controller\Deslogar;
 use Douglas\Cursos\Controller\Exclusao;
 use Douglas\Cursos\Controller\FormularioInsercao;
 use Douglas\Cursos\Controller\ListarCursos;
@@ -20,7 +21,8 @@ $routes = [
     '/login' => Login::class,
     '/realizar-login' => RealizarLogin::class,
     '/cadastro' => Cadastro::class,
-    '/realizar-cadastro' => RealizarCadastro::class
+    '/realizar-cadastro' => RealizarCadastro::class,
+    '/logout' => Deslogar::class
 
    
 ];

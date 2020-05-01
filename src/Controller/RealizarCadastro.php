@@ -17,7 +17,6 @@ class RealizarCadastro implements InterfaceControladorRequisicao
     {
         $this->entityManager = (new EntityManagerCreator())->getEntityManager();
     }
-
     
     public function ProcessaRequisicao() : void
     {
@@ -30,20 +29,36 @@ class RealizarCadastro implements InterfaceControladorRequisicao
         'senha',
         FILTER_SANITIZE_STRING);
 
+        if (is_null($email) || $email === false || is_null($senha)){
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "Preencha os dados corretamente.";
+            header('location: /cadastro');
+            return;
+        }
+
+        if (is_null($senha)){
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "Digite sua senha";
+            header('location: /cadastro');
+        }
+
         $usuario = new Usuario();
         $usuario->setEmail($email);
         $usuario->setSenha($senha);
+        
 
-    
-        $this->entityManager->persist($usuario);  //criar novo curso
-       
-        $this->entityManager->flush();
-
-        if(is_null($usuario)){
-            echo "Usuario nulo pqp";
+        if(is_null($usuario) || $usuario === false){
+            $_SESSION['tipo_mensagem'] = 'danger';
+            $_SESSION['mensagem'] = "Os dados não foram preechidos";
+            header('location: /cadastro');
+            return;
         }else{
+            $this->entityManager->persist($usuario);
+            $this->entityManager->flush();
+
             header('Location: /login',true,302);
         }
+
     }
 
     //pegar dados do formulario

@@ -13,10 +13,10 @@ if(!array_key_exists($caminho,$routes)){ //existe caminho->listar-cursos ou outr
 
 session_start();
 
-$rotaLogin = stripos($caminho,'login');  //procurar a string login no caminho
+$rotaLogin = stripos($caminho,'cadastro');  //procurar a string login no caminho
 
-if(!isset($_SESSION['logado']) && $rotaLogin === false && $caminho !== '/cadastro' && $caminho !== '/realizar-cadastro'){
-    header('location: /login');
+if(!isset($_SESSION['logado']) && $rotaLogin === false && $caminho !== '/login' && $caminho !== '/realizar-login'){
+    header('location: /cadastro');
     exit();
 }
 
