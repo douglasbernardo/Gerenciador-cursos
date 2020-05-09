@@ -3,9 +3,11 @@
 namespace Douglas\Cursos\Controller;
 use Douglas\Cursos\Infra\EntityManagerCreator;
 use Douglas\Cursos\Entity\Curso;
+use Douglas\Cursos\Helper\RenderizadorHtml;
 
-class ListarCursos extends ControllerComHtml implements InterfaceControladorRequisicao
+class ListarCursos implements InterfaceControladorRequisicao
 {
+    use RenderizadorHtml;
 
     private $repositorioDeCursos;
 

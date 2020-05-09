@@ -1,9 +1,12 @@
 <?php
 
-namespace Douglas\Cursos\Controller;       
+namespace Douglas\Cursos\Controller;
 
-class FormularioInsercao extends ControllerComHtml implements InterfaceControladorRequisicao
+use Douglas\Cursos\Helper\RenderizadorHtml;
+
+class FormularioInsercao implements InterfaceControladorRequisicao
 {
+    use RenderizadorHtml;
 
     public function processaRequisicao() : void
     {
