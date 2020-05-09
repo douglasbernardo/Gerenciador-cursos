@@ -2,9 +2,13 @@
 
 namespace Douglas\Cursos\Controller;
 
-class Cadastro extends ControllerComHtml implements InterfaceControladorRequisicao
+use Douglas\Cursos\Helper\RenderizadorHtml;
+
+class Cadastro implements InterfaceControladorRequisicao
 {
-    public function ProcessaRequisicao(): void
+    use RenderizadorHtml;
+    
+    public function processaRequisicao(): void
     {
         echo $this->renderizahtml('cadastrar/formulario.php',[
             'titulo' => 'Cadastrar'

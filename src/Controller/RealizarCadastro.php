@@ -3,10 +3,13 @@
 namespace Douglas\Cursos\Controller;
 
 use Douglas\Cursos\Entity\Usuario;
+use Douglas\Cursos\Helper\FlashMessageTrait;
 use Douglas\Cursos\Infra\EntityManagerCreator;
 
 class RealizarCadastro implements InterfaceControladorRequisicao
 {
+    use FlashMessageTrait;
+
     /**
      * @var \Doctrine\Orm\EntityManagerInterface
      */
@@ -18,7 +21,7 @@ class RealizarCadastro implements InterfaceControladorRequisicao
         $this->entityManager = (new EntityManagerCreator())->getEntityManager();
     }
     
-    public function ProcessaRequisicao() : void
+    public function processaRequisicao() : void
     {
      //post
         $email = filter_input(INPUT_POST,
@@ -30,15 +33,13 @@ class RealizarCadastro implements InterfaceControladorRequisicao
         FILTER_SANITIZE_STRING);
 
         if (is_null($email) || $email === false || is_null($senha)){
-            $_SESSION['tipo_mensagem'] = 'danger';
-            $_SESSION['mensagem'] = "Preencha os dados corretamente.";
+            $this->defineMensagem('danger','Preencha os dados corretamente');
             header('location: /cadastro');
             return;
         }
 
         if (is_null($senha)){
-            $_SESSION['tipo_mensagem'] = 'danger';
-            $_SESSION['mensagem'] = "Digite sua senha";
+            $this->defineMensagem('danger','Digite sua senha');
             header('location: /cadastro');
         }
 
@@ -48,14 +49,13 @@ class RealizarCadastro implements InterfaceControladorRequisicao
         
 
         if(is_null($usuario) || $usuario === false){
-            $_SESSION['tipo_mensagem'] = 'danger';
-            $_SESSION['mensagem'] = "Os dados não foram preechidos";
+            $this->defineMensagem('danger','Os dados não foram preenchidos');
             header('location: /cadastro');
             return;
         }else{
             $this->entityManager->persist($usuario);
             $this->entityManager->flush();
-
+            
             header('Location: /login',true,302);
         }
 

@@ -16,7 +16,7 @@ class ListarCursos extends ControllerComHtml implements InterfaceControladorRequ
         ->getRepository(Curso::class);
     }
 
-    public function ProcessaRequisicao():void //Metodo que processa a requisição
+    public function processaRequisicao():void //Metodo que processa a requisição
     { //Buscar todos os Cursos
         echo $this->renderizahtml('cursos/listar-cursos.php',[
             'curso' => $this->repositorioDeCursos->findAll(),

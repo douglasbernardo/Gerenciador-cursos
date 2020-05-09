@@ -5,7 +5,7 @@ namespace Douglas\Cursos\Controller;
 class FormularioInsercao extends ControllerComHtml implements InterfaceControladorRequisicao
 {
 
-    public function ProcessaRequisicao() : void
+    public function processaRequisicao() : void
     {
         $titulo = "Novo Curso";
         echo $this->renderizahtml('cursos/Formulario.php',[

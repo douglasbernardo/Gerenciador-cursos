@@ -4,6 +4,6 @@ namespace Douglas\Cursos\Controller;
 
 interface InterfaceControladorRequisicao{
 
-    public function ProcessaRequisicao() : void;
+    public function processaRequisicao() : void;
 
 }

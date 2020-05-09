@@ -16,7 +16,7 @@ class Alterar extends ControllerComHtml implements InterfaceControladorRequisica
         $this->entityManager = (new EntityManagerCreator())->getEntityManager();
     }
 
-    public function ProcessaRequisicao(): void
+    public function processaRequisicao(): void
     {
         $id = filter_input(INPUT_GET,  //filtrando id
         'id',
